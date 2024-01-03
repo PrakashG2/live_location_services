@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:live_location_services/widgets/log_list.dart';
 import 'package:location/location.dart';
 import 'package:get/get.dart';
 import 'package:live_location_services/controllers/global_controller.dart';
@@ -98,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Text("Live Latitude: ${_globalController.lattitude.value}"),
             Text("Live Longitude: ${_globalController.longitude.value}"),
-          ],
+Expanded(child: ListViewWidget())          ],
         ),
       ),
     );

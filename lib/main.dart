@@ -48,7 +48,8 @@ Future<void> initializeService() async {
   // Configure background service
   await service.configure(
     androidConfiguration: AndroidConfiguration(
-      onStart: backgroundServiceLogic, // Use the background service logic from the utils file
+      onStart:
+          backgroundServiceLogic, // Use the background service logic from the utils file
       autoStart: true,
       isForegroundMode: true,
       notificationChannelId: 'my_foreground',
