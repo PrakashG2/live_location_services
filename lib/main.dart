@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:live_location_services/controllers/global_controller.dart';
 import 'package:live_location_services/screens/home_screen.dart';
 import 'package:live_location_services/utils/background_services.dart';
-import 'package:live_location_services/utils/flutter_background_services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,7 +53,7 @@ Future<void> initializeService() async {
       isForegroundMode: true,
       notificationChannelId: 'my_foreground',
       initialNotificationTitle: 'AWESOME SERVICE',
-      initialNotificationContent: 'Initializingooo',
+      initialNotificationContent: 'Initializing',
       foregroundServiceNotificationId: 888,
     ),
     iosConfiguration: IosConfiguration(
@@ -66,15 +65,15 @@ Future<void> initializeService() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'LIVE LOCATION SERVICES',
-      getPages: GetPages.getPages,
       initialBinding: RootBindings(),
       initialRoute: RouteName.homeScreen,
+      home: const HomeScreen(),
     );
   }
 }
@@ -98,3 +97,4 @@ class GetPages {
         ),
       ];
 }
+
