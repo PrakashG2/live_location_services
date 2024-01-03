@@ -53,24 +53,28 @@ void onStart(ServiceInstance service) async {
     service.stopSelf();
   });
 
-  Timer.periodic(Duration(seconds: 2), (timer) async {
-    Position? _curentPosition;
+  Timer.periodic(
+    Duration(seconds: 2),
+    (timer) async {
+      Position? _curentPosition;
 
-    if (service is AndroidServiceInstance) {
-      if (await service.isForegroundService()) {
-        flutterLocalNotificationsPlugin.show(
-          888,
-          "women safety app",
-          "shake feature enable",
-          NotificationDetails(
+      if (service is AndroidServiceInstance) {
+        if (await service.isForegroundService()) {
+          flutterLocalNotificationsPlugin.show(
+            888,
+            "women safety app",
+            "shake feature enable",
+            NotificationDetails(
               android: AndroidNotificationDetails(
-            "script academy",
-            "foregrounf service",
-            icon: 'ic_bg_service_small',
-            ongoing: true,
-          )),
-        );
+                "script academy",
+                "foregrounf service",
+                icon: 'ic_bg_service_small',
+                ongoing: true,
+              ),
+            ),
+          );
+        }
       }
-    }
-  });
+    },
+  );
 }
